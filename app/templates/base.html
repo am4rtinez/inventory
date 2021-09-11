@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% if title %}
+        <title>{{ title }} - Inventory</title>
+        {% else %}
+        <title>Welcome to Inventory</title>
+        {% endif %}
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+    <footer>
+        <div><p>Copyright 2021</p></div>
+    </footer>
+</html>
